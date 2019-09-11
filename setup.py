@@ -19,9 +19,9 @@ from setuptools import setup
 
 setup(
     name='sasciftools',
-    version='1.0.2',
+    version='3.0.0',
     description='Package for reading and writing files in sascif format',
-    url='https://github.com/emblsaxs/sasciftools',
+    url='https://git.embl.de/grp-svergun/sasciftools3',
     classifiers=[
         'Development Status :: 3 - Alpha',
         'Environment :: Console',
@@ -32,8 +32,8 @@ setup(
         # https://pypi.python.org/pypi?%3Aaction=list_classifiers
         'License :: OSI Approved :: Apache Software License',
         'Natural Language :: English',
-        'Programming Language :: Python :: 2',
-        'Programming Language :: Python :: 2.7',
+        'Programming Language :: Python :: 3',
+        'Programming Language :: Python :: 3.7',
     ],
     packages=[
         'sasciftools',
