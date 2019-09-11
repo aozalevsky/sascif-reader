@@ -663,7 +663,7 @@ class CifFile(object):
 # internal functions & classes
 def _formatVal(val):
     """Format any value as it would appear in a CIF file"""
-    val = unicode(val)
+    val = str(val)
     if "'" in val:
         if val.startswith("_") or val.startswith("[") or \
                 (" " in val and "\n" not in val):

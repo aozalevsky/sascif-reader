@@ -262,11 +262,11 @@ class CifFileWriter(object):
                                         else:
                                             row_items.append(table[i][rI].ljust(entryLen[i]))
                                     line = " ".join(row_items) + "\n"
-                                    self._handle.write(line.encode("UTF-8"))
+                                    self._handle.write(str(line))
                             table = []    
                             colLen = None
                         line = tag + item.getFormattedValue() + "\n"
-                        self._handle.write(line.encode("UTF-8"))    
+                        self._handle.write(str(line))
                     else:
                         if not table:
                             self._handle.write(self.LOOP)
@@ -295,7 +295,7 @@ class CifFileWriter(object):
                                 else:
                                     row_items.append(table[i][rI].ljust(entryLen[i]))
                             line = " ".join(row_items) + "\n"
-                            self._handle.write(line.encode("UTF-8"))
+                            self._handle.write(str(line))
                 self._handle.write(self.NEWLINE)
                 # HANDLE SAVEFRAMES #
 
