@@ -1,20 +1,20 @@
 # sasCIFtools
 **sasCIFtools** is a set of python scripts designed to process sasCIF files.
 The main purpose of the tools is to convert file formats traditionally used for SAS data analysis to sasCIF and *vice versa*.
-sasCIFtools requires installed [ATSAS package 2.6.1](http://www.embl-hamburg.de/biosaxs/software.html) and [python 2.7.6](https://www.python.org/downloads/).
+sasCIFtools requires installed [ATSAS package 3.0.0](http://www.embl-hamburg.de/biosaxs/software.html) and [python 3.7.5](https://www.python.org/downloads/).
 
 ### Installation
 sasCIFtools is still alpha-quality and is not yet available as a package through the PyPI.
 It can be installed directly from the GitHub repository using:
 
-```pip install  git+https://github.com/emblsaxs/sasciftools.git```
+```pip install git+https://git.embl.de/grp-svergun/sasciftools3.git@master#egg=sasciftools```
 
 To avoid messing up your Python installation if there is a problem with the setup.py file, it is recommended to install in a virtualenv:
 
 ```
 virtualenv sasciftools-venv
 source sasciftools-venv/bin/activate
-pip install  git+https://github.com/emblsaxs/sasciftools.git
+pip install git+https://git.embl.de/grp-svergun/sasciftools3.git@master#egg=sasciftools
 ```
 
 ## About sasCIF
@@ -99,6 +99,6 @@ All export tools except for `cif2all` have similar interface:
 
 * `writesaxsdoc.py`: contains one class **saxsdocout** to write SAS data files in ATSAS format
     
-* `sasCIFtools.ini`: contains path to the ATSAS python libraries if ATSAS is not installed to default location. The default location is `/usr/lib/x86_64-linux-gnu/atsas/python2.7/dist-packages/`.
+* `sasCIFtools.ini`: contains path to the ATSAS python libraries if ATSAS is not installed to default location. The default location is `/usr/lib/atsas/python3.5/dist-packages/`.
 
 More details about the components of sasCIFtoolbox can be found in the scripts source code.

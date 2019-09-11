@@ -32,7 +32,7 @@ def getSaxsDocLibPath():
                     SAXSDOCLIBPATH = line.split('=')[-1].strip()
         f.close()
     if not SAXSDOCLIBPATH or not os.path.isfile(os.path.join(SAXSDOCLIBPATH, 'saxsdocument.so')):
-        SAXSDOCLIBPATH = '/usr/lib/x86_64-linux-gnu/atsas/python2.7/dist-packages/'
+        SAXSDOCLIBPATH = '/usr/lib/atsas/python3.5/dist-packages/'
     if os.path.isfile(os.path.join(SAXSDOCLIBPATH, 'saxsdocument.so')):    
         sys.path.append(SAXSDOCLIBPATH)
     else: 
