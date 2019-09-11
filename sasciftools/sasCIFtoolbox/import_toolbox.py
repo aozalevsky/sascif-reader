@@ -16,6 +16,7 @@
 
 import collections
 import re
+from pprint import pprint
 
 from . import cifutils
 cifutils.getSaxsDocLibPath()
@@ -69,9 +70,14 @@ class sasdata(object):
         curves = self.sasfile.curve
         sasCIFdict = self.sasCIFdict
 
-        s = [str('%14E' % value) for value in list(zip(*curves[0])[0])]
-        I = [str('%14E' % value) for value in list(zip(*curves[0])[1])]
-        err = [str('%14E' % value) for value in list(zip(*curves[0])[2])]
+        s = []
+        I = []
+        err = []
+        for arr in curves[0]:
+            s.append(str('%14E' % arr[0]))
+            I.append(str('%14E' % arr[1]))
+            err.append(str('%14E' % arr[2]))
+
 
         # If data_block is not specified, then write in the first one
         if not data_block_id:
@@ -106,25 +112,32 @@ class sasdata(object):
         chifile = open(self.filename, "r")
         for line in chifile:
             if ('Chi' in line) or ('chi' in line):
-                par = filter(None, re.split(' |:|=|\n|\r', line))
+                par = list(filter(None, re.split(' |:|=|\n|\r', line)))
                 chi_name = [p for p in par if ("Chi" in p) or ("chi" in p)][0]
                 chi = par[par.index(chi_name) + 1]
                 if '^2' not in chi_name:
                     try:
                         chi = float(chi) ** 2
-                    except Exception:
+                    except TypeError:
                         chi = "."
         chifile.close()
 
         # Read fit
         curves = self.sasfile.curve
-        s = [str('%14E' % value) for value in list(zip(*curves[0])[0])]
-        I = [str('%14E' % value) for value in list(zip(*curves[0])[1])]
+        s = []
+        I = []
+        for arr in curves[0]:
+            s.append(str('%14E' % arr[0]))
+            I.append(str('%14E' % arr[1]))
+
+        fit = []
         if len(curves) == 1:
             # very rare case
-            fit = [str('%14E' % value) for value in list(zip(*curves[0])[-1])]
+            for arr in curves[0]:
+                fit.append(str('%14E' % arr[-1]))
         else:
-            fit = [str('%14E' % value) for value in list(zip(*curves[1])[1])]
+            for arr in curves[1]:
+                fit.append(str('%14E' % arr[1]))
 
         # If data_block is not specified, then write in the first one
         if not data_block_id:
@@ -153,13 +166,22 @@ class sasdata(object):
         sasCIFdict = self.sasCIFdict
 
         # Read intensities
-        s_extrp = [str('%14E' % value) for value in list(zip(*curves[2])[0])]
-        I_extrp = [str('%14E' % value) for value in list(zip(*curves[2])[1])]
+        s_extrp = []
+        I_extrp = []
+
+        for arr in curves[2]:
+            s_extrp.append(str('%14E' % arr[0]))
+            I_extrp.append(str('%14E' % arr[1]))
 
         # Read p(r)
-        r = [str('%14E' % value) for value in list(zip(*curves[3])[0])]
-        p = [str('%14E' % value) for value in list(zip(*curves[3])[1])]
-        err = [str('%14E' % value) for value in list(zip(*curves[3])[2])]
+        r = []
+        p = []
+        err = []
+
+        for arr in curves[3]:
+            r.append(str('%14E' % arr[0]))
+            p.append(str('%14E' % arr[1]))
+            err.append(str('%14E' % arr[2]))
 
         # If data_block is not specified, then write in the first one
         if not data_block_id:
