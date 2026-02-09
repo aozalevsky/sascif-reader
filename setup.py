@@ -38,21 +38,5 @@ setup(
     packages=[
         'sasciftools',
         'sasciftools.mmCif',
-        'sasciftools.sasCIFtoolbox',
-        'sasciftools.scripts',
     ],
-    entry_points={
-        'console_scripts': [
-            'cif2all=sasciftools.scripts.cif2all:main',
-            'cif2dat=sasciftools.scripts.cif2dat:main',
-            'cif2fit=sasciftools.scripts.cif2fit:main',
-            'cif2out=sasciftools.scripts.cif2out:main',
-            'cif2pdb=sasciftools.scripts.cif2pdb:main',
-            'cif2sub=sasciftools.scripts.cif2sub:main',
-            'dat2cif=sasciftools.scripts.dat2cif:main',
-            'fit2cif=sasciftools.scripts.fit2cif:main',
-            'out2cif=sasciftools.scripts.out2cif:main',
-            'pdb2cif=sasciftools.scripts.pdb2cif:main',
-        ],
-    },
 )

@@ -1,3 +1,7 @@
+# sascif-reader
+
+This repository contains a stripped-down version of the **sasCIFtools** (see below) without an ATSAS dependency. Essentially, it has only a sasCIF reader. 
+
 # sasCIFtools
 **sasCIFtools** is a set of python scripts designed to process sasCIF files.
 The main purpose of the tools is to convert file formats traditionally used for SAS data analysis to sasCIF and *vice versa*.
